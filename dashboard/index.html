@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Radar — every protocol that records no token yet, ranked</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <p class="eyebrow">DefiLlama snapshot &middot; frozen 14 Nov 2026</p>
+    <h1>TOKEN RADAR</h1>
+    <p class="sub">Every protocol that records no token yet, ranked by the value the
+    market would pay for it &mdash; priced from the snapshot&rsquo;s own figures,
+    not from a name list.</p>
+    <p class="meta" id="meta"></p>
+  </div>
+</header>
+
+<div class="formula" id="formula"></div>
+
+<section class="stats" id="stats" aria-label="Snapshot totals"></section>
+
+<nav class="controls" aria-label="Board controls">
+  <input id="q" type="search" placeholder="Search name or slug&hellip;" autocomplete="off">
+  <select id="cat" aria-label="Category filter"></select>
+  <select id="chain" aria-label="Chain filter"></select>
+  <select id="sort" aria-label="Sort order">
+    <option value="value">Sort: implied value</option>
+    <option value="tvl">Sort: TVL</option>
+    <option value="change">Sort: 7-day change</option>
+    <option value="age">Sort: age</option>
+    <option value="name">Sort: name A&ndash;Z</option>
+  </select>
+  <div class="seg" id="scope" role="group" aria-label="Scope">
+    <button data-scope="all" class="on">All ranked</button>
+    <button data-scope="watchlist">Watchlist only</button>
+    <button data-scope="early">Early finds</button>
+  </div>
+  <div class="seg" id="view" role="group" aria-label="View">
+    <button data-view="board" class="on">Pre-token board</button>
+    <button data-view="live">Live tokens</button>
+  </div>
+</nav>
+
+<main>
+  <section id="boardwrap">
+    <p class="count" id="count"></p>
+    <table id="board">
+      <thead>
+        <tr>
+          <th class="num">#</th>
+          <th>Protocol</th>
+          <th>Category</th>
+          <th>Chains</th>
+          <th class="num">TVL</th>
+          <th class="num">7-day</th>
+          <th class="num">Age</th>
+          <th class="num">Implied value</th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <p class="more"><button id="more">Show more</button></p>
+  </section>
+
+  <section id="detail" class="detail" hidden></section>
+
+  <section id="livewrap" hidden>
+    <p class="count" id="livecount"></p>
+    <table id="livetable">
+      <thead>
+        <tr>
+          <th class="num">#</th>
+          <th>Protocol</th>
+          <th>Category</th>
+          <th>Chains</th>
+          <th class="num">TVL</th>
+          <th class="num">Market cap</th>
+          <th class="num">7-day</th>
+        </tr>
+      </thead>
+      <tbody id="liverows"></tbody>
+    </table>
+  </section>
+</main>
+
+<section class="method" id="method" aria-label="How the value is built"></section>
+
+<footer>
+  <p>Built from the sealed DefiLlama snapshot for the make.fun token-radar-01
+  bounty. No network requests: every number on this page comes from the
+  snapshot file. Implied value is this entry&rsquo;s claim, not a promise that
+  a token will be issued. Farm steps are generic guidance, not financial
+  advice.</p>
+</footer>
+
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
